@@ -59,13 +59,15 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         _uIManager.UIMainMenu();
         Cursor.visible = true;
+        _fpsControllerScript.enabled = false;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void Gameplay()
     {
         Time.timeScale = 1f;
         _uIManager.UIGameplay();
-
+        _fpsControllerScript.enabled = true;
         Cursor.visible = false;
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -93,6 +95,7 @@ public class GameManager : MonoBehaviour
     {
         _uIManager.UIGameEnd();
         Time.timeScale = 1f;
+        _fpsControllerScript.enabled = false;
         Cursor.visible = true;
         // Buttons on screen to quit game or return to main menu
     }
@@ -101,7 +104,7 @@ public class GameManager : MonoBehaviour
 
     public void UnPause()
     {
-        _fpsControllerScript.enabled = true;
+        //_fpsControllerScript.enabled = true;
 
         gameState = GameState.Gameplay;
         
