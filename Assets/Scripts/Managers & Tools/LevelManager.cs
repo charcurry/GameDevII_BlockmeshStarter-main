@@ -42,7 +42,7 @@ public class LevelManager : MonoBehaviour
 
         sceneToLoad = currentSceneIndex += increment;
 
-        if (sceneToLoad >= sceneCount - 1)                          { sceneToLoad = sceneCount - 1; Debug.LogError("Last scene in build order");   }
+        if (sceneToLoad >= sceneCount)                              { sceneToLoad = sceneCount; Debug.LogError("Last scene in build order");   }
         else if (sceneToLoad <= 0)                                  { sceneToLoad = 0;              Debug.LogError("First scene in build order");   }        
         else if (sceneToLoad < 0 || sceneToLoad > sceneCount - 1)   { Debug.LogError("Invalid level index. Ensure the nextLevelIndex is within the range of available scenes."); }
 
